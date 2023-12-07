@@ -1,0 +1,31 @@
+url: ~
+template:
+  bootstrap: 5
+  bootswatch: simplex
+  bslib:
+    pkgdown-nav-height: 100px
+
+development:
+  mode: auto
+
+navbar:
+  structure:
+    left:  [reference, articles, tutorials]
+    right: [search, github]
+
+home:
+  sidebar:
+    structure: [links, license, citation, authors, dev]
+
+authors:
+  Nassos Stylianou:
+    href: "mailto:nassos.stylianou@bbc.co.uk"
+  Clara Guibourg:
+    href: "mailto:clara.guibourg@bbc.co.uk"
+  Will Dahlgreen:
+    href: "mailto:william.dahlgreen@bbc.co.uk"
+  Robert Cuffe:
+    href: "mailto: robert.cuffe@bbc.co.uk"
+
+
+

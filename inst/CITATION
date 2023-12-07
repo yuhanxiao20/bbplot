@@ -1,0 +1,7 @@
+bibentry(
+  bibtype = "Manual",
+  author = "Nassos Stylianou and Clara Guibourg and Will Dahlgreen and Robert Cuffe and Tom Calver and Ransome Mpini",
+  title = "bbplot: MAKING GGPLOT GRAPHICS IN BBC NEWS STYLE",
+  year = "2019",
+  url = "https://yuhanx.com/bbplot/",
+)
