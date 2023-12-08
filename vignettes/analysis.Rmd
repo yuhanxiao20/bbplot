@@ -1,0 +1,30 @@
+---
+title: "Example Analysis"
+code-fold: true
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Example Analysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Overview
+
+In this vignette, I will analyze a dataset [XXX]. The goal here is to demonstrate the functions from the R package `bbplot` and wrangle and plot the example data from TidyTuesday.
+
+* Question: 
+
+* Audience: R package `bbplot` users who are interested in seeing example data wrangling and visualizations.
+
+* Dataset: I obtained the original dataset from  [TidyTuesday]().
+
+* Data dictionary: I referred to this [data dictionary]() from TidyTuesday.
+
+## Data Analysis
