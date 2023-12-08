@@ -80,8 +80,8 @@ Example of graphics created using the bbplot package
 </h2>
 <p><code>bbplot</code> is not on CRAN, so you will have to install it directly from Github using <code>devtools</code>.</p>
 <p>If you do not have the <code>devtools</code> package installed, you will have to run the first line in the code below as well.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages('devtools')</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'bbc/bbplot'</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># install.packages('devtools')</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'bbc/bbplot'</span>)</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="using-the-functions">Using the functions<a class="anchor" aria-label="anchor" href="#using-the-functions"></a>
@@ -99,10 +99,10 @@ Example of graphics created using the bbplot package
 </ol>
 <p>The function is pretty basic and does not change or adapt based on the type of chart you are making, so in some cases you will need to make additional <code>theme</code> arguments in your ggplot chain if you want to make any additions or changes to the style, for example to add or remove gridlines etc. Also note that colours for lines in the case of a line chart or bars for a bar chart, do not come out of the box from the <code>bbc_style</code> function, but need to be explicitly set in your other standard <code>ggplot</code> chart functions.</p>
 <p>Example of how it is used in a standard workflow:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>line <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(line_df, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"#007f7f"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">colour=</span><span class="st">"#333333"</span>) <span class="sc">+</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">bbc_style</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>line <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(line_df, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"#007f7f"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">colour=</span><span class="st">"#333333"</span>) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="fu">bbc_style</span>()</span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="finalise_plot">
@@ -130,11 +130,11 @@ Example of graphics created using the bbplot package
 <code>logo_image_path</code>: this argument specifies the path for the image/logo in the bottom right corner of the plot. The default is for a placeholder PNG file with a background that matches the background colour of the plot, so do not specify the argument if you want it to appear without a logo. If you want to add your own logo, just specify the path to your PNG file. The package has been prepared with a wide and thin image in mind.</li>
 </ul>
 <p>Example of how the <code><a href="reference/finalise_plot.html">finalise_plot()</a></code> is used in a standard workflow. This function is called once you have created and finalised your chart data, titles and added the <code><a href="reference/bbc_style.html">bbc_style()</a></code> to it (see above):</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">finalise_plot</span>(<span class="at">plot_name =</span> my_line_plot,</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">source =</span> <span class="st">"Source: ONS"</span>,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">save_filepath =</span> <span class="st">"filename_that_my_plot_should_be_saved_to-nc.png"</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">width_pixels =</span> <span class="dv">640</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">height_pixels =</span> <span class="dv">550</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">finalise_plot</span>(<span class="at">plot_name =</span> my_line_plot,</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="at">source =</span> <span class="st">"Source: ONS"</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="at">save_filepath =</span> <span class="st">"filename_that_my_plot_should_be_saved_to-nc.png"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="at">width_pixels =</span> <span class="dv">640</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="at">height_pixels =</span> <span class="dv">550</span>)</span></code></pre></div>
 </div>
 </div>
 
